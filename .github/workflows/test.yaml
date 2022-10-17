@@ -16,6 +16,7 @@ jobs:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release', ssl-backend: openssl}
           - {os: windows-latest, r: 'release'}
+          - {os: windows-latest, r: 'devel'}
           - {os: windows-2019,   r: 'release'}
           - {os: ubuntu-20.04,   r: 'release'}
 
