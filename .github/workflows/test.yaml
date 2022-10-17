@@ -44,7 +44,7 @@ jobs:
 
       - shell: Rscript {0}
         run: |
-          h <- curl::new_handle(verbose=TRUE,sslversion=6L)
+          h <- curl::new_handle(verbose=TRUE,ssl_verifyhost=FALSE,ssl_verifypeer=FALSE)
           curl::curl_fetch_memory('https://crandb.r-pkg.org/dplyr/all', handle = h)
         env:
           CURL_SSL_BACKEND: ${{ matrix.config.ssl-backend }}
