@@ -45,6 +45,6 @@ jobs:
       - shell: Rscript {0}
         run: |
           h <- curl::new_handle(verbose=TRUE)
-          curl::curl_fetch_memory('https://miktex.org', handle = h)
+          curl::curl_fetch_memory('https://api.gbif.org/v1/', handle = h)
         env:
           CURL_SSL_BACKEND: ${{ matrix.config.ssl-backend }}
