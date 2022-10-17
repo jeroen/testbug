@@ -16,7 +16,6 @@ jobs:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release', ssl-backend: openssl}
           - {os: windows-latest, r: 'release'}
-          - {os: windows-latest, r: 'devel'}
           - {os: windows-2019,   r: 'release'}
           - {os: ubuntu-20.04,   r: 'release'}
 
@@ -45,6 +44,7 @@ jobs:
 
       - shell: Rscript {0}
         run: |
-          download.file("https://crandb.r-pkg.org/dplyr/all", tempfile(), method = "libcurl")
+          h <- curl::new_handle(verbose=TRUE,sslversion=4L)
+          curl::curl_fetch_memory('https://crandb.r-pkg.org/dplyr/all', handle = h)
         env:
           CURL_SSL_BACKEND: ${{ matrix.config.ssl-backend }}
